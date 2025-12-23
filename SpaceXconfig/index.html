@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceX Shooter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    <div class="nebula" id="nebula"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="title glitch" data-text="SPACE SHOOTER">SpaceX SHOOTER</h1>
+            <p class="subtitle">METEOR BLASTER</p>
+        </div>
+
+        <div class="game-area">
+            <div class="game-ui">
+                <div class="ui-panel mission-control">
+                    <div class="panel-header">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h3>MISSION PROGRESS</h3>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">SCORE</span>
+                                <span id="scoreValue" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-glow"></div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">LIVES</span>
+                                <span id="livesValue" class="stat-value">1</span>
+                            </div>
+                            <div class="stat-glow"></div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">LEVEL</span>
+                                <span id="levelValue" class="stat-value">1</span>
+                            </div>
+                            <div class="stat-glow"></div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-meteor"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-label">DESTROYED</span>
+                                <span id="meteorsValue" class="stat-value">0</span>
+                            </div>
+                            <div class="stat-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span>LEVEL PROGRESSION</span>
+                            <span id="progressPercent">0%</span>
+                        </div>
+                        <div class="progress-container">
+                            <div id="levelProgress" class="progress-fill">
+                                <div class="progress-glow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-panel mission-brief">
+                    <div class="panel-header">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>MISSION BRIEFING</h3>
+                    </div>
+                    
+                    <div class="mission-content">
+                        <div class="mission-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>CRITICAL THREAT DETECTED</span>
+                        </div>
+                        
+                        <p class="mission-text">
+                            Massive meteor shower approaching sector 7-G. Your mission is to protect the galactic frontier by destroying incoming meteors before they breach defense lines.
+                        </p>
+                        
+                        <div class="objectives">
+                            <h4>PRIMARY OBJECTIVES:</h4>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Navigate using directional thrusters</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-fire"></i>
+                                    <span>Engage plasma cannons with SPACEBAR</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Avoid meteor collisions at all costs</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Advance through threat levels</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-panel systems-status">
+                    <div class="panel-header">
+                        <i class="fas fa-microchip"></i>
+                        <h3>SYSTEMS STATUS</h3>
+                    </div>
+                    
+                    <div class="systems-grid">
+                        <div class="system-item">
+                            <div class="system-name">PLASMA CANNONS</div>
+                            <div class="system-status online">
+                                <div class="status-dot"></div>
+                                <span>ONLINE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="system-item">
+                            <div class="system-name">DEFENSE SHIELDS</div>
+                            <div class="system-status online">
+                                <div class="status-dot"></div>
+                                <span>ONLINE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="system-item">
+                            <div class="system-name">ENGINE CORE</div>
+                            <div class="system-status online">
+                                <div class="status-dot"></div>
+                                <span>OPTIMAL</span>
+                            </div>
+                        </div>
+                        
+                        <div class="system-item">
+                            <div class="system-name">THREAT RADAR</div>
+                            <div class="system-status scanning">
+                                <div class="status-dot"></div>
+                                <span>SCANNING</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-container">
+                <canvas id="gameCanvas" width="900" height="650"></canvas>
+                
+                <div id="startScreen" class="screen">
+                    <div class="mission-header">
+                        <div class="mission-id">
+                            <span class="mission-label">MISSION ID</span>
+                            <span class="mission-number">STELLAR-623</span>
+                        </div>
+                        <div class="threat-level">
+                            <span class="threat-label">THREAT LEVEL</span>
+                            <span class="threat-value">CLASS 2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="title-section">
+                        <h2 class="mission-title glitch" data-text="METEOR BLASTER">METEOR BLASTER</h2>
+                        <div class="title-underline"></div>
+                    </div>
+                    
+                    <p class="mission-instruction">
+                        Engage defensive protocols and eliminate all incoming celestial threats. Maintain shield integrity and advance through threat levels.
+                    </p>
+                    
+                    <div class="tech-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-space-shuttle"></i>
+                            <span>NOVA-CLASS INTERCEPTOR</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>PLASMA CANNON SYSTEM</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>QUANTUM SHIELDING</span>
+                        </div>
+                    </div>
+                    
+                    <button id="startButton" class="start-btn pulse-glow">
+                        <span class="btn-text">INITIATE LAUNCH SEQUENCE</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+                
+                <div id="gameOverScreen" class="screen hidden">
+                    <div class="mission-status critical">
+                        <i class="fas fa-skull-crossbones"></i>
+                        <span>MISSION FAILURE - CRITICAL DAMAGE</span>
+                    </div>
+                    
+                    <h2 class="failure-title">SYSTEMS COMPROMISED</h2>
+                    
+                    <div class="debris-animation">
+                        <div class="debris"></div>
+                        <div class="debris"></div>
+                        <div class="debris"></div>
+                    </div>
+                    
+                    <div class="results-panel">
+                        <div class="result-item">
+                            <span class="result-label">FINAL SCORE</span>
+                            <span id="finalScore" class="result-value">0</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">THREAT LEVEL REACHED</span>
+                            <span id="finalLevel" class="result-value">1</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">METEORS DESTROYED</span>
+                            <span id="finalMeteors" class="result-value">0</span>
+                        </div>
+                    </div>
+                    
+                    <button id="restartButton" class="restart-btn">
+                        <span class="btn-text">DEPLOY NEW INTERCEPTOR</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls-panel">
+            <div class="control-item">
+                <i class="fa-solid fa-arrow-up"></i>
+                <span>W - Up</span>
+            </div>
+            <div class="control-item">
+                <i class="fa-solid fa-arrow-down"></i>
+                <span>S - Down</span>
+            </div>
+            <div class="control-item">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>A - Left</span>
+            </div>
+            <div class="control-item">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>D - Right</span>
+            </div>
+            <div class="control-item">
+                <i class="fa-solid fa-computer-mouse"></i>
+                <span>Mouse1- Shoot</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <span>SpaceX SHOOTER: METEOR BLASTER</span>
+                <span>KOSOVO GALACTIC DEFENSE | 2026</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
